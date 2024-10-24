@@ -77,7 +77,7 @@ jobs:
       - name: Install
         run: poetry install
       - name: BuildAndLoad
-        run: task build-and-load
+        run: task build-and-load TAG="$IMG_TAG"
       - name: Ngrok
         if: ${{ env.NGROK == 'on' }}
         run: bash .github/debug-github-actions.sh
