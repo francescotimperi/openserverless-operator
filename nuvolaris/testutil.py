@@ -182,6 +182,10 @@ def load_image_env():
     r = run('grep MY_OPERATOR_IMAGE .env', shell=True, capture_output=True)
     if r.returncode == 0:
         opimg = r.stdout.strip().decode("ascii").split("=")[-1]
+    g = run('grep GITHUB_USER= .env', shell=True, capture_output=True)
+    if g.returncode == 0:
+        ghuser = g.stdout.strip().decode("ascii").split("=")[-1]
+        opimg = opimg.replace("${GITHUB_USER}",ghuser)
     os.environ["OPERATOR_IMAGE"] = opimg
     # operator tag is the git tag of the operator
     r = run('git describe --tags --abbrev=0 2>/dev/null || git rev-parse --short HEAD', shell=True, capture_output=True)
