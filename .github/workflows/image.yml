@@ -71,9 +71,8 @@ jobs:
       - name: Setup
         run: bash .github/cisetup.sh
       - name: Kind
-        uses: helm/kind-action@v1.2.0
+        uses: helm/kind-action@v1.5.0
         with:
-            version: 1.25.3
             cluster_name: nuvolaris
             config: .github/kind.yaml        
       - name: Install
