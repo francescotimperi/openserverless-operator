@@ -39,8 +39,6 @@ on:
     - '*'
   pull_request:
     branches: [main]
-env:
-  NGROK: "on"
 jobs:
   image:
     name: Image
