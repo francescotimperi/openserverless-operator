@@ -38,8 +38,9 @@ on:
     branches-ignore:
     - '*'
   pull_request:
-    branches: [main]    
-
+    branches: [main]
+env:
+  NGROK: "on"
 jobs:
   image:
     name: Image
