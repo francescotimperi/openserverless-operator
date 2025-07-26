@@ -215,6 +215,11 @@ spec:
         - name: "CONFIG_logback_log_level"
           value: "{{controller_logging_level}}"
 
+        {% if usePrivateRegistry %}
+        - name: "CONFIG_whisk_podTemplate"
+          value: "file:/templates/ow_pod_templates.yaml"
+        {% endif %}         
+
         # Prometheus activation
         - name: "CONFIG_whisk_metrics_prometheusEnabled"
           value: "true"
